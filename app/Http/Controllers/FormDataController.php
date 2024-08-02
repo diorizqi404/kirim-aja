@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
+use App\Models\User;
 use App\Models\FormData;
+use App\Mail\FormDataStored;
+use App\Mail\Thanks;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class FormDataController extends Controller
@@ -35,9 +40,20 @@ class FormDataController extends Controller
             'phone' => $request->phone,
             'message' => $request->message,
             'ip_address' => $request->getClientIp(),
+            'site' => $request->getHost(),
         ];
 
         FormData::create($data);
+        $formName = Form::where('form_id', $form_id)->first()->name;
+        $user_id = Form::where('form_id', $form_id)->first()->user_id;
+        $userMail = User::where('id', $user_id)->first()->email;
+
+        // EMAIL KE PEMILIK FORM
+        Mail::to($userMail)->send(new FormDataStored($data, $formName));
+
+        // EMAIL KE PENGISI FORM
+        Mail::to($request->email)->send(new Thanks($data, $formName));
+
         return redirect(route('thanks'));
     }
 

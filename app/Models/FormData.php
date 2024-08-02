@@ -17,6 +17,7 @@ class FormData extends Model
         'phone',
         'message',
         'ip_address',
+        'site',
     ];
 
     public function form()

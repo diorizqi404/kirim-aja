@@ -60,7 +60,7 @@
                         <td>{{ $u->name }}</td>
                         <td>{{ $u->form_description }}</td>
                         <td>{{ $u->created_at }}</td>
-                        <td><a href="{{ route('form', ['form_id' => $u->form_id]) }}">Page</td>
+                        <td><a href="{{ route('form', ['form_id' => $u->form_id]) }}">Details Form</td>
                     </tr>
                 @endforeach
             </tbody>

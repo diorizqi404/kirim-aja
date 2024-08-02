@@ -45,8 +45,8 @@
                 <p>100% tidak berbayar alias gratis. Kamu bisa membuat form berapapun yang kamu inginkan.</p>
             </div>
             <div class="col-md-4">
-                <h2>No Limit</h2>
-                <p>Tidak ada batasan fitur apapun. Pesan tak terbatas.</p>
+                <h2>Easy</h2>
+                <p>Kamu dapat melihat submission baru pada halaman dashboard dan email kamu tentunya.</p>
             </div>
         </div>
     </section>

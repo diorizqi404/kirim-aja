@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('form_data', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('form_id')->constrained();
+            $table->string('form_id'); // Define form_id as string
+            $table->foreign('form_id')->references('form_id')->on('forms');
             $table->string('fullname');
             $table->string('email');
             $table->string('phone');
